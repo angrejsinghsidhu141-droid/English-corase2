@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Basic English Course</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f5f7fa;
+      color: #222;
+      line-height: 1.6;
+      font-size: 16px;
+    }
+    .topbar {
+      background: #1f3a5f;
+      color: #fff;
+      padding: 14px 18px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .topbar .site-name {
+      font-size: 1.25rem;
+      font-weight: bold;
+    }
+    .hero {
+      background: linear-gradient(135deg, #2b6cb0, #4299e1);
+      color: #fff;
+      text-align: center;
+      padding: 48px 20px;
+    }
+    .hero h1 {
+      font-size: 1.9rem;
+      margin-bottom: 12px;
+    }
+    .hero p {
+      font-size: 1.05rem;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 24px 16px;
+    }
+    section { margin-bottom: 32px; }
+    h2 {
+      font-size: 1.4rem;
+      color: #1f3a5f;
+      margin-bottom: 14px;
+      border-bottom: 2px solid #cbd5e0;
+      padding-bottom: 6px;
+    }
+    details {
+      background: #fff;
+      border: 1px solid #dde3ea;
+      border-radius: 10px;
+      margin-bottom: 12px;
+      overflow: hidden;
+    }
+    summary {
+      padding: 16px 18px;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 1.05rem;
+      color: #1f3a5f;
+      list-style: none;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary::after {
+      content: "+";
+      float: right;
+      font-size: 1.3rem;
+      line-height: 1;
+    }
+    details[open] summary::after { content: "-"; }
+    .lesson-num {
+      display: inline-block;
+      background: #2b6cb0;
+      color: #fff;
+      border-radius: 50%;
+      width: 26px;
+      height: 26px;
+      text-align: center;
+      line-height: 26px;
+      font-size: 0.9rem;
+      margin-right: 8px;
+    }
+    .lesson-body {
+      padding: 0 18px 18px 18px;
+      border-top: 1px solid #eef1f5;
+    }
+    .lesson-body p { margin-top: 12px; }
+    .lesson-body h3 {
+      font-size: 1.05rem;
+      color: #2b6cb0;
+      margin-top: 20px;
+      margin-bottom: 6px;
+    }
+    .lesson-body ul { margin: 10px 0 0 20px; }
+    .lesson-body li { margin-bottom: 4px; }
+    .point {
+      margin-top: 18px;
+      padding-top: 4px;
+    }
+    .point-title {
+      font-weight: bold;
+      color: #1f3a5f;
+      font-size: 1rem;
+    }
+    .table-wrap {
+      overflow-x: auto;
+      margin-top: 10px;
+      -webkit-overflow-scrolling: touch;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+      background: #fbfcfe;
+    }
+    th, td {
+      border: 1px solid #dde3ea;
+      padding: 7px 9px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th { background: #eaf2fb; color: #1f3a5f; }
+    .dialog {
+      background: #f1f7f1;
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin-top: 10px;
+      font-size: 0.97rem;
+    }
+    .dialog p { margin-top: 6px; }
+    .dialog .speaker { font-weight: bold; color: #276749; }
+    .example {
+      background: #fff8e6;
+      border-left: 4px solid #d69e2e;
+      padding: 8px 12px;
+      margin-top: 8px;
+      border-radius: 6px;
+    }
+    .tip-box {
+      background: #eef6ff;
+      border-left: 4px solid #2b6cb0;
+      padding: 8px 12px;
+      margin-top: 10px;
+      border-radius: 6px;
+      font-size: 0.95rem;
+    }
+    .tips {
+      background: #fff;
+      border-left: 5px solid #38a169;
+      border-radius: 8px;
+      padding: 16px 18px;
+    }
+    .tips ul { margin-left: 20px; }
+    .tips li { margin-bottom: 8px; }
+    .about {
+      background: #fff;
+      border-radius: 10px;
+      padding: 18px;
+      text-align: center;
+      border: 1px solid #dde3ea;
+    }
+    .contact {
+      text-align: center;
+      padding: 8px 0 40px 0;
+    }
+    .wa-btn {
+      display: inline-block;
+      background: #25d366;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1rem;
+      padding: 14px 28px;
+      border-radius: 30px;
+      box-shadow: 0 4px 10px rgba(37, 211, 102, 0.35);
+    }
+    .wa-btn:hover { background: #1ebe5b; }
+    .footer-note {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #667;
+      margin-top: 10px;
+    }
+    @media (min-width: 600px) {
+      .hero h1 { font-size: 2.4rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="site-name">Basic English Course</div>
+  </header>
+
+  <section class="hero">
+    <h1>Learn basic English, step by step</h1>
+    <p>Small lessons, simple words, and easy practice. Tap any lesson below to open the full lesson.</p>
+  </section>
+
+  <main class="container">
+
+    <section id="lessons">
+      <h2>Course Outline</h2>
+
+      <!-- LESSON 1 -->
+      <details>
+        <summary><span class="lesson-num">1</span>Alphabet and Sounds</summary>
+        <div class="lesson-body">
+          <p>English has 26 letters. Learn their names and their sounds. Say each one out loud every day.</p>
+
+          <div class="point">
+            <div class="point-title">1. The 26 letters</div>
+            <p>A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</p>
+          </div>
+
+          <div class="point">
+            <div class="point-title">2. Vowels and consonants</div>
+            <p>Vowels are A, E, I, O, U. They make an open sound. All other letters are consonants.</p>
+            <div class="example">Example: apple (A), egg (E), igloo (I), orange (O), umbrella (U).</div>
+          </div>
+
+          <div class="point">
+            <div class="point-title">3. Letter and word table</div>
+            <div class="table-wrap">
+              <table>
+                <tr><th>Letter</th><th>Example word</th><th>Letter</th><th>Example word</th></tr>
+                <tr><td>A</td><td>apple, ant</td><td>N</td><td>nose, nut</td></tr>
+                <tr><td>B</td><td>bat, ball</td><td>O</td><td>orange, owl</td></tr>
+                <tr><td>C</td><td>cat, cup</td><td>P</td><td>pen, parrot</td></tr>
+                <tr><td>D</td><td>dog, doll</td><td>Q</td><td>queen, quilt</td></tr>
+                <tr><td>E</td><td>egg, elephant</td><td>R</td><td>red, rat</td></tr>
+                <tr><td>F</td><td>fish, fan</td><td>S</td><td>sun, sugar</td></tr>
+                <tr><td>G</td><td>goat, grapes</td><td>T</td><td>tea, tiger</td></tr>
+                <tr><td>H</td><td>hat, house</td><td>U</td><td>umbrella, up</td></tr>
+                <tr><td>I</td><td>ice, insect</td><td>V</td><td>van, vest</td></tr>
+                <tr><td>J</td><td>jug, juice</td><td>W</td><td>water, watch</td></tr>
+                <tr><td>K</td><td>kite, king</td><td>X</td><td>box, fox</td></tr>
+                <tr><td>L</td><td>lamp, leaf</td><td>Y</td><td>yes, yellow</td></tr>
+                <tr><td>M</td><td>mango, moon</td><td>Z</td><td>zero, zebra</td></tr>
+              </table>
+            </div>
+          </div>
+
+          <div class="point">
+            <div class="point-title">4. Tricky sounds</div>
+            <ul>
+              <li>C sounds like K in cat, and like S in city.</li>
+              <li>G sounds hard in go, and soft like J in gym.</li>
+              <li>Q is always followed by U: queen, quick.</li>
+              <li>Sh sound: ship, shoe, fish.</li>
+              <li>Ch sound: chair, chai, cheese.</li>
+            </ul>
+          </div>
+
+          <div class="point">
+            <div class="point-title">5. Spelling your name</div>
+            <p>Many times you must spell your name on the phone or in a form. Say each letter clearly.</p>
+            <div class="dialog">
+              <p><span class="speaker">Office staff:</span> What is your name, please?</p>
+              <p><span class="speaker">Ravi:</span> My name is Ravi. R, A, V, I.</p>
+              <p><span class="speaker">Office staff:</span> Thank you, Ravi.</p>
+            </div>
+          </div>
+
+          <div class="point">
+            <div class="point-title">6. Words that start with the same sound</div>
+            <p>Say these pairs out loud. Notice the first sound.</p>
+            <div class="example">ball, bag, box, bat, big (B sound)<br>sun, sock, six, seven (S sound)<br>man, mother, mango, milk (M sound)</div>
+          </div>
+
+          <div class="point">
+            <div class="point-title">7. Daily practice (5 minutes)</div>
+            <ul>
+              <li>Say A to Z slowly, 3 times.</li>
+              <li>Pick 3 letters and say one word for each.</li>
+              <li>Spell your name, your city, and your school or office.</li>
+            </ul>
+          </div>
+
+          <div class="point">
+            <div class="point-title">8. Mini practice</div>
+            <p>Say the first sound of these words: cow, dog, egg, fan, goat. Answer: K, D, E, F, G.</p>
+          </div>
+
+          <div class="tip-box">Tip: Use a notebook. Write one letter, one word, and one picture each day.</div>
+        </div>
+      </details>
+
+      <!-- LESSON 2 -->
+      <details>
+        <summary><span class="lesson-num">2</span>Greetings</summary>
+        <div class="lesson-body">
+          <p>Greetings are the first words you use when you meet someone. Learn them with the time of day.</p>
+
+          <div class="point">
+            <div class="point-title">1. Basic greetings</div>
+            <ul>
+              <li>Hello.</li>
+              <li>Hi. (friendly, short)</li>
+              <li>Good morning. (before 12 noon)</li>
+              <li>Good afternoon. (12 noon to 5 pm)</li>
+              <li>Good evening. (after 5 pm)</li>
+              <li>Good night. (when you leave at night or go to sleep)</li>
+            </ul>
+          </div>
+
+          <div class="point">
+            <div class="point-title">2. How to ask and answer "How are you?"</div>
+            <div class="table-wrap">
+              <table>
+                <tr><th>Question</th><th>Good answers</th></tr>
+                <tr><td>How are you?</td><td>I am fine, thank you.</td></tr>
+                <tr><td>How are you?</td><td>I am good. And you?</td></tr>
+                <tr><td>How are you?</td><td>I am very well, thanks.</td></tr>
+                <tr><td>How are you?</td><td>Not bad. How about you?</td></tr>
+              </table>
+            </div>
+          </div>
+
+          <div class="point">
+            <div class="point-title">3. Dialogue: meeting in the morning</div>
+            <div class="dialog">
+              <p><span class="speaker">Meena:</span> Good morning, Ramesh!</p>
+              <p><span class="speaker">Ramesh:</span> Good morning, Meena. How are you?</p>
+              <p><span class="speaker">Meena:</span> I am fine, thank you. And you?</p>
+              <p><span class="speaker">Ramesh:</span> I am good. See you later!</p>
+              <p><span class="speaker">Meena:</span> Bye, see you!</p>
+            </div>
+          </div>
+
+          <div class="point">
+            <div class="point-title">4. Dialogue: at the shop</div>
+            <div class="dialog">
+              <p><span class="speaker">Shopkeeper:</span> Good evening! How can I help you?</p>
+              <p><span class="speaker">Asha:</span> Good evening. I want milk, please.</p>
+              <p><span class="speaker">Shopkeeper:</span> Here you are. Anything else?</p>
+              <p><span class="speaker">Asha:</span> No, thank you. Good night!</p>
+            </div>
+          </div>
+
+          <div class="point">
+            <div class="point-title">5. Namaste is fine too</div>
+            <p>In India, "Namaste" is a good greeting for anyone. You can say "Namaste" and then "Hello" or "Good morning" in English.</p>
+            <div class="example">Namaste, Sir. Good morning! How are you?</div>
+          </div>
+
+          <div class="point">
+            <div class="point-title">6. Formal and friendly greetings</div>
+            <ul>
+              <li>With elders, teachers, or bosses, say "Good morning, Sir" or "Good morning, Madam".</li>
+              <li>With friends, say "Hi", "Hey", or "Hello".</li>
+              <li>Smile and make eye contact. It is polite.</li>
+            </ul>
+          </div>
+
+          <div class="point">
+            <div class="point-title">7. Saying goodbye</div>
+            <table>
+              <tr><th>Goodbye phrase</th><th>Example</th></tr>
+              <tr><td>Bye</td><td>Bye, take care!</td></tr>
+              <tr><td>See you</td><td>See you tomorrow.</td></tr>
+              <tr><td>See you later</td><td>See you later at the bus stop.</td></tr>
+              <tr><td>Take care</td><td>Take care, and go safely.</td></tr>
+              <tr><td>Good night</td><td>Good night, sleep well.</td></tr>
+            </table>
+          </div>
+
+          <div class="point">
+            <div class="point-title">8. Practice: say the right greeting</div>
+            <ul>
+              <li>It is 9 am and you meet your teacher. Say: "Good morning, Sir."</li>
+              <li>It is 7 pm and you leave a friend. Say: "Good evening. See you tomorrow."</li>
+              <li>It is 2 pm and you see your neighbour. Say: "Good afternoon, Auntie. How are you?"</li>
+            </ul>
+          </div>
+
+          <div class="tip-box">Tip: Say one greeting to one person every day. Practice with family first.</div>
+        </div>
+      </details>
+
+      <!-- LESSON 3 -->
+      <details>
+        <summary><span class="lesson-num">3</span>Self Introduction</summary>
+        <div class="lesson-body">
+          <p>Learn to tell people about yourself. Use short and simple sentences.</p>
+
+          <div class="point">
+            <div class="point-title">1. Name sentences</div>
+            <div class="example">My name is Ravi.<br>I am Ravi.<br>You can call me Ravi.</div>
+          </div>
+
+          <div class="point">
+            <div class="point-title">2. Where are you from?</div>
+            <div class="example">I am from Punjab.<br>I am from Jaipur.<br>I am from a small village near Patna.</div>
+            <p>Note: "I am from" + place name.</p>
+          </div>
+
+          <div class="point">
+            <div class="point-title">3. Your job or study</div>
+            <div class="example">I am a student.<br>I am a teacher.<br>I work in a shop.<br>I study in class 10.</div>
+          </div>
+
+          <div class="point">
+            <div class="point-title">4. Your age</div>
+            <div class="example">I am 20 years old.<br>I am 35.<br>I am 16 years old.</div>
+          </div>
+
+          <div class="point">
+            <div class="point-title">5. Your family</div>
+            <div class="example">I have one brother and one sister.<br>I live with my mother and father.<br>I am the eldest child.</div>
+          </div>
+
+          <div class="point">
+            <div class="point-title">6. Sample self-introduction</div>
+            <div class="dialog">
+              <p>Hello. My name is Ravi. I am from Punjab. I am 20 years old. I am a student. I live with my family. I like cricket and music. Nice to meet you!</p>
+            </div>
+          </div>
+
+          <div class="point">
+            <div class="point-title">7. Dialogue: first meeting</div>
+            <div class="dialog">
+              <p><span class="speaker">Ravi:</span> Hello. My name is Ravi. What is your name?</p>
+              <p><span class="speaker">Priya:</span> Hi, Ravi. My name is Priya.</p>
+              <p><span class="speaker">Ravi:</span> Where are you from, Priya?</p>
+              <p><span class="speaker">Priya:</span> I am from Delhi. And you?</p>
+              <p><span class="speaker">Ravi:</span> I am from Punjab. Nice to meet you, Priya.</p>
+              <p><span class="speaker">Priya:</span> Nice to meet you too, Ravi.</p>
+            </div>
+          </div>
+
+          <div class="point">
+            <div class="point-title">8. Useful phrases</div>
+            <table>
+              <tr><th>English</th><th>Meaning</th></tr>
+              <tr><td>Nice to meet you.</td><td>Happy to meet you.</td></tr>
+              <tr><td>Pleased to meet you.</td><td>Polite form of nice to meet you.</td></tr>
+              <tr><td>Can you repeat, please?</td><td>Please say it again.</td></tr>
+              <tr><td>I do not understand.</td><td>I did not get the meaning.</td></tr>
+            </table>
+          </div>
+
+          <div class="point">
+            <div class="point-title">9. Practice</div>
+            <p>Write 5 sentences about yourself. Start with "My name is", "I am from", "I am", "I have", and "I like".</p>
+          </div>
+
+          <div class="tip-box">Tip: Practise your introduction in front of a mirror. Speak slowly.</div>
+        </div>
+      </details>
+
+      <!-- LESSON 4 -->
+      <details>
+        <summary><span class="lesson-num">4</span>Everyday Words</summary>
+        <div class="lesson-body">
+          <p>Learn the words you use every day. Put them in groups. Review them each day.</p>
+
+          <div class="point">
+            <div class="point-title">1. Family words (10)</div>
+            <div class="table-wrap">
+              <table>
+                <tr><th>English</th><th>Meaning</th></tr>
+                <tr><td>mother / mom</td><td>maa</td></tr>
+                <tr><td>father / dad</td><td>papa</td></tr>
+                <tr><td>brother</td><td>bhai</td></tr>
+                <tr><td>sister</td><td>behen</td></tr>
+                <tr><td>grandmother</td><td>dadi / nani</td></tr>
+                <tr><td>grandfather</td><td>dada / nana</td></tr>
+                <tr><td>uncle</td><td>chacha / mama</td></tr>
+                <tr><td>aunt</td><td>chachi / mami / masi</td></tr>
+                <tr><td>son</td><td>beta</td></tr>
+                <tr><td>daughter</td><td>beti</td></tr>
+              </table>
+            </div>
+          </div>
+
+          <div class="point">
+            <div class="point-title">2. Home words (10)</div>
+            <table>
+              <tr><th>English</th><th>Meaning</th></tr>
+              <tr><td>house</td><td>ghar</td></tr>
+              <tr><td>room</td><td>kamra</td></tr>
+              <tr><td>door</td><td>darwaza</td></tr>
+              <tr><td>window</td><td>khidki</td></tr>
+              <tr><td>bed</td><td>palang</td></tr>
+              <tr><td>table</td><td>mez</td></tr>
+              <tr><td>chair</td><td>kursi</td></tr>
+              <tr><td>kitchen</td><td>rasoi</td></tr>
+              <tr><td>bathroom</td><td>bathroom (also "washroom")</td></tr>
+              <tr><td>fan</td><td>pankha</td></tr>
+            </table>
+          </div>
+
+          <div class="point">
+            <div class="point-title">3. Food and drink words (10)</div>
+            <table>
+              <tr><th>English</th><th>Meaning</th></tr>
+              <tr><td>water</td><td>paani</td></tr>
+              <tr><td>rice</td><td>chawal</td></tr>
+              <tr><td>bread</td><td>roti / bread</td></tr>
+              <tr><td>milk</td><td>doodh</td></tr>
+              <tr><td>tea</td><td>chai</td></tr>
+              <tr><td>sugar</td><td>cheeni</td></tr>
+              <tr><td>salt</td><td>namak</td></tr>
+              <tr><td>egg</td><td>anda</td></tr>
+              <tr><td>banana</td><td>kela</td></tr>
+              <tr><td>mango</td><td>aam</td></tr>
+            </table>
+          </div>
+
+          <div class="point">
+            <div class="point-title">4. Numbers 1 to 10</div>
+            <table>
+              <tr><th>Number</th><th>Word</th><th>Number</th><th>Word</th></tr>
+              <tr><td>1</td><td>one</td><td>6</td><td>six</td></tr>
+              <tr><td>2</td><td>two</td><td>7</td><td>seven</td></tr>
+              <tr><td>3</td><td>three</td><td>8</td><td>eight</td></tr>
+              <tr><td>4</td><td>four</td><td>9</td><td>nine</td></tr>
+              <tr><td>5</td><td>five</td><td>10</td><td>ten</td></tr>
+            </table>
+            <div class="example">I have two bananas. Give me three rotis, please.</div>
+          </div>
+
+          <div class="point">
+            <div class="point-title">5. Colours (6)</div>
+            <p>red, blue, green, yellow, black, white</p>
+            <div class="example">The sari is red. The sky is blue.</div>
+          </div>
+
+          <div class="point">
+            <div class="point-title">6. Days of the week</div>
+            <p>Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday</p>
+            <div class="example">Today is Monday. Tomorrow is Tuesday.</div>
+          </div>
+
+          <div class="point">
+            <div class="point-title">7. Words in a sentence</div>
+            <div class="example">
+              "My mother cooks rice at home."<br>
+              "The fan is in the room."<br>
+              "I drink tea every morning."
+            </div>
+          </div>
+
+          <div class="point">
+            <div class="point-title">8. Practice</div>
+            <ul>
+              <li>Pick 5 words from the table. Say each word and make one sentence.</li>
+              <li>Point to things in your room and name them in English.</li>
+              <li>Count from 1 to 10, then from 10 to 1.</li>
+            </ul>
+          </div>
+
+          <div class="tip-box">Tip: Make flashcards. Write English on one side and meaning on the other side.</div>
+        </div>
+      </details>
+
+      <!-- LESSON 5 -->
+      <details>
+        <summary><span class="lesson-num">5</span>Simple Sentences</summary>
+        <div class="lesson-body">
+          <p>A basic sentence has a subject (who), a verb (action or state), and often an object (what).</p>
+
+          <div class="point">
+            <div class="point-title">1. Subject + verb + object</div>
+            <div class="example">I eat rice.<br>She reads a book.<br>We play cricket.<br>They watch TV.</div>
+          </div>
+
+          <div class="point">
+            <div class="point-title">2. Subject words</div>
+            <table>
+              <tr><th>Subject</th><th>Meaning</th></tr>
+              <tr><td>I</td><td>me (myself)</td></tr>
+              <tr><td>you</td><td>one person or many</td></tr>
+              <tr><td>he</td><td>a man or boy</td></tr>
+              <tr><td>she</td><td>a woman or girl</td></tr>
+              <tr><td>it</td><td>a thing or animal</td></tr>
+              <tr><td>we</td><td>me and other people</td></tr>
+              <tr><td>they</td><td>other people or things</td></tr>
+            </table>
+          </div>
+
+          <div class="point">
+            <div class="point-title">3. Am, is, are</div>
+            <table>
+              <tr><th>Subject</th><th>Use</th><th>Example</th></tr>
+              <tr><td>I</td><td>am</td><td>I am happy.</td></tr>
+              <tr><td>he, she, it</td><td>is</td><td>She is my sister.</td></tr>
+              <tr><td>you, we, they</td><td>are</td><td>We are friends.</td></tr>
+            </table>
+          </div>
+
+          <div class="point">
+            <div class="point-title">4. Negative sentences (not)</div>
+            <div class="example">I am not hungry.<br>She is not at home.<br>They do not like rain.</div>
+          </div>
+
+          <div class="point">
+            <div class="point-title">5. Sentences with "have"</div>
+            <div class="example">I have a pen.<br>He has a bike.<br>We have two cats.</div>
+          </div>
+
+          <div class="point">
+            <div class="point-title">6. Sentences with "like"</div>
+            <div class="example">I like tea.<br>She likes music.<br>They like football.</div>
+          </div>
+
+          <div class="point">
+            <div class="point-title">7. Add place and time</div>
+            <div class="example">I study at home.<br>We go to school in the morning.<br>He sleeps at 10 pm.</div>
+          </div>
+
+          <div class="point">
+            <div class="point-title">8. Short practice dialogue</div>
+            <div class="dialog">
+              <p><span class="speaker">Asha:</span> What do you eat for breakfast?</p>
+              <p><span class="speaker">Ravi:</span> I eat roti and tea.</p>
+              <p><span class="speaker">Asha:</span> I like tea too. Do you like milk?</p>
+              <p><span class="speaker">Ravi:</span> No, I do not like milk.</p>
+            </div>
+          </div>
+
+          <div class="point">
+            <div class="point-title">9. Practice</div>
+            <p>Make 5 sentences: one with "I", one with "she", one with "they", one negative, and one with "have".</p>
+          </div>
+
+          <div class="tip-box">Tip: Keep sentences short. Five to seven words is enough at the start.</div>
+        </div>
+      </details>
+
+      <!-- LESSON 6 -->
+      <details>
+        <summary><span class="lesson-num">6</span>Questions</summary>
+        <div class="lesson-body">
+          <p>Questions help you get information. There are two main types: question-word questions and yes or no questions.</p>
+
+          <div class="point">
+            <div class="point-title">1. Question words</div>
+            <table>
+              <tr><th>Question word</th><th>Asks about</th><th>Example question</th><th>Example answer</th></tr>
+              <tr><td>What</td><td>things</td><td>What is your name?</td><td>My name is Ravi.</td></tr>
+              <tr><td>Where</td><td>place</td><td>Where do you live?</td><td>I live in Delhi.</td></tr>
+              <tr><td>When</td><td>time</td><td>When is your exam?</td><td>On Friday.</td></tr>
+              <tr><td>Who</td><td>person</td><td>Who is your teacher?</td><td>Mr. Sharma.</td></tr>
+              <tr><td>Why</td><td>reason</td><td>Why are you late?</td><td>Because the bus was late.</td></tr>
+              <tr><td>How</td><td>way or condition</td><td>How are you?</td><td>I am fine.</td></tr>
+              <tr><td>How many</td><td>number (countable)</td><td>How many brothers do you have?</td><td>I have two.</td></tr>
+              <tr><td>How much</td><td>amount</td><td>How much is this?</td><td>It is 20 rupees.</td></tr>
+            </table>
+          </div>
+
+          <div class="point">
+            <div class="point-title">2. Yes or no questions with "is", "are", "am"</div>
+            <div class="example">Are you hungry? Yes, I am.<br>Is she your sister? No, she is my friend.<br>Am I late? No, you are on time.</div>
+          </div>
+
+          <div class="point">
+            <div class="point-title">3. Yes or no questions with "do" and "does"</div>
+            <div class="example">Do you like tea? Yes, I do.<br>Does he play cricket? Yes, he does.<br>Do they live here? No, they do not.</div>
+          </div>
+
+          <div class="point">
+            <div class="point-title">4. Word order in questions</div>
+            <ul>
+              <li>Statement: You are at home.</li>
+              <li>Question: Are you at home?</li>
+              <li>Statement: She likes milk.</li>
+              <li>Question: Does she like milk?</li>
+            </ul>
+          </div>
+
+          <div class="point">
+            <div class="point-title">5. Useful everyday questions</div>
+            <div class="example">
+              Can you help me, please?<br>
+              Where is the bathroom?<br>
+              What time is it?<br>
+              How much is this?<br>
+              Do you speak Hindi?
+            </div>
+          </div>
+
+          <div class="point">
+            <div class="point-title">6. Dialogue: asking directions</div>
+            <div class="dialog">
+              <p><span class="speaker">Ravi:</span> Excuse me, where is the bus stop?</p>
+              <p><span class="speaker">Stranger:</span> It is near the bank. Go straight.</p>
+              <p><span class="speaker">Ravi:</span> How far is it?</p>
+              <p><span class="speaker">Stranger:</span> Five minutes on foot.</p>
+              <p><span class="speaker">Ravi:</span> Thank you so much!</p>
+            </div>
+          </div>
+
+          <div class="point">
+            <div class="point-title">7. Questions to ask a friend</div>
+            <ul>
+              <li>What are you doing today?</li>
+              <li>Where are you going?</li>
+              <li>Do you want to eat something?</li>
+              <li>Are you free on Sunday?</li>
+            </ul>
+          </div>
+
+          <div class="point">
+            <div class="point-title">8. Practice</div>
+            <p>Make 3 questions with What, 3 with Where, and 2 with Do. Then answer them out loud.</p>
+          </div>
+
+          <div class="tip-box">Tip: Start every question with a question word or with is, are, do, or does.</div>
+        </div>
+      </details>
+
+      <!-- LESSON 7 -->
+      <details>
+        <summary><span class="lesson-num">7</span>Tenses Basics</summary>
+        <div class="lesson-body">
+          <p>Tenses show when something happens: now or always (present), before now (past), or later (future).</p>
+
+          <div class="point">
+            <div class="point-title">1. Present simple (every day, always, facts)</div>
+            <p>Use the base verb. For he, she, it, add s or es.</p>
+            <div class="example">I go to school every day.<br>She reads a book at night.<br>My father works in a bank.<br>We drink tea in the morning.</div>
+          </div>
+
+          <div class="point">
+            <div class="point-title">2. Past simple (finished actions)</div>
+            <p>For most verbs, add ed. Some verbs change completely (irregular).</p>
+            <table>
+              <tr><th>Base verb</th><th>Past</th><th>Example</th></tr>
+              <tr><td>play</td><td>played</td><td>I played cricket yesterday.</td></tr>
+              <tr><td>work</td><td>worked</td><td>He worked in Pune last year.</td></tr>
+              <tr><td>go</td><td>went (irregular)</td><td>We went to the temple on Sunday.</td></tr>
+              <tr><td>eat</td><td>ate (irregular)</td><td>I ate rice for lunch.</td></tr>
+              <tr><td>see</td><td>saw (irregular)</td><td>She saw a movie last night.</td></tr>
+            </table>
+          </div>
+
+          <div class="point">
+            <div class="point-title">3. Future simple (will)</div>
+            <p>Use will + base verb for future plans and promises.</p>
+            <div class="example">I will go to the market tomorrow.<br>She will call you in the evening.<br>We will help you next week.<br>They will come to the wedding.</div>
+          </div>
+
+          <div class="point">
+            <div class="point-title">4. Future with "going to" (plans)</div>
+            <div class="example">I am going to study tonight.<br>He is going to visit his uncle on Sunday.<br>We are going to watch a film.</div>
+          </div>
+
+          <div class="point">
+            <div class="point-title">5. Time words for each tense</div>
+            <table>
+              <tr><th>Tense</th><th>Time words</th></tr>
+              <tr><td>Present</td><td>every day, always, usually, now, today</td></tr>
+              <tr><td>Past</td><td>yesterday, last week, last year, two days ago</td></tr>
+              <tr><td>Future</td><td>tomorrow, next week, next month, soon</td></tr>
+            </table>
+          </div>
+
+          <div class="point">
+            <div class="point-title">6. Same sentence in three tenses</div>
+            <div class="example">
+              Present: I cook rice every day.<br>
+              Past: I cooked rice yesterday.<br>
+              Future: I will cook rice tomorrow.
+            </div>
+          </div>
+
+          <div class="point">
+            <div class="point-title">7. Negative in past</div>
+            <div class="example">I did not go to school yesterday.<br>She did not call me last night.<br>We did not eat outside.</div>
+          </div>
+
+          <div class="point">
+            <div class="point-title">8. Dialogue across tenses</div>
+            <div class="dialog">
+              <p><span class="speaker">Meena:</span> What did you do yesterday?</p>
+              <p><span class="speaker">Asha:</span> I visited my aunt. We cooked dinner together.</p>
+              <p><span class="speaker">Meena:</span> What will you do tomorrow?</p>
+              <p><span class="speaker">Asha:</span> I will go to the market with my mother.</p>
+            </div>
+          </div>
+
+          <div class="point">
+            <div class="point-title">9. Practice</div>
+            <ul>
+              <li>Write 1 present sentence about your home.</li>
+              <li>Write 1 past sentence about yesterday.</li>
+              <li>Write 1 future sentence about tomorrow.</li>
+            </ul>
+          </div>
+
+          <div class="tip-box">Tip: Learn the 5 irregular past verbs first: go, eat, see, come, take. They are used a lot.</div>
+        </div>
+      </details>
+
+      <!-- LESSON 8 -->
+      <details>
+        <summary><span class="lesson-num">8</span>Daily Conversation</summary>
+        <div class="lesson-body">
+          <p>Now put it all together. Practise short chats about your day, food, weather, shopping, and plans.</p>
+
+          <div class="point">
+            <div class="point-title">1. Morning routine chat</div>
+            <div class="dialog">
+              <p><span class="speaker">Mother:</span> Good morning, beta! Did you sleep well?</p>
+              <p><span class="speaker">Ravi:</span> Yes, Mom. I slept well. What is for breakfast?</p>
+              <p><span class="speaker">Mother:</span> Paratha and tea.</p>
+              <p><span class="speaker">Ravi:</span> Great! I am very hungry.</p>
+            </div>
+          </div>
+
+          <div class="point">
+            <div class="point-title">2. Talking about the weather</div>
+            <div class="example">It is hot today.<br>It is raining now.<br>It is cold in the morning.<br>Is it going to rain tomorrow?</div>
+          </div>
+
+          <div class="point">
+            <div class="point-title">3. At the shop</div>
+            <div class="dialog">
+              <p><span class="speaker">Customer:</span> Excuse me. How much is this soap?</p>
+              <p><span class="speaker">Shopkeeper:</span> It is 40 rupees.</p>
+              <p><span class="speaker">Customer:</span> Can I have two, please?</p>
+              <p><span class="speaker">Shopkeeper:</span> Sure. Here you are. That is 80 rupees.</p>
+              <p><span class="speaker">Customer:</span> Thank you. Here is 100 rupees.</p>
+            </div>
+          </div>
+
+          <div class="point">
+            <div class="point-title">4. Phone call</div>
+            <div class="dialog">
+              <p><span class="speaker">Asha:</span> Hello, is this Ravi?</p>
+              <p><span class="speaker">Ravi:</span> Yes, speaking. Who is this?</p>
+              <p><span class="speaker">Asha:</span> It is Asha. Are you free this evening?</p>
+              <p><span class="speaker">Ravi:</span> Yes, I am free. Do you want to meet?</p>
+              <p><span class="speaker">Asha:</span> Yes. Let us meet at 6 pm at the park.</p>
+              <p><span class="speaker">Ravi:</span> Okay. See you then!</p>
+            </div>
+          </div>
+
+          <div class="point">
+            <div class="point-title">5. Talking about food</div>
+            <div class="example">What do you want to eat?<br>I want dal and rice.<br>This food is very tasty!<br>Can I have some water, please?</div>
+          </div>
+
+          <div class="point">
+            <div class="point-title">6. Talking about plans</div>
+            <div class="example">What are you doing this weekend?<br>I am going to visit my cousin on Saturday.<br>Do you want to come with me?</div>
+          </div>
+
+          <div class="point">
+            <div class="point-title">7. Useful polite phrases</div>
+            <table>
+              <tr><th>Phrase</th><th>When to use</th></tr>
+              <tr><td>Excuse me</td><td>to get attention</td></tr>
+              <tr><td>Sorry</td><td>when you make a mistake</td></tr>
+              <tr><td>Thank you / Thanks</td><td>when someone helps you</td></tr>
+              <tr><td>You are welcome</td><td>reply to thank you</td></tr>
+              <tr><td>Please</td><td>when you ask for something</td></tr>
+              <tr><td>Can you say that again?</td><td>when you did not hear well</td></tr>
+            </table>
+          </div>
+
+          <div class="point">
+            <div class="point-title">8. Full practice conversation</div>
+            <div class="dialog">
+              <p><span class="speaker">Ravi:</span> Hi, Priya! How are you?</p>
+              <p><span class="speaker">Priya:</span> I am good, thanks. And you?</p>
+              <p><span class="speaker">Ravi:</span> I am fine. What did you do yesterday?</p>
+              <p><span class="speaker">Priya:</span> I went to the market with my mother. We bought vegetables.</p>
+              <p><span class="speaker">Ravi:</span> Nice! What will you do tomorrow?</p>
+              <p><span class="speaker">Priya:</span> I am going to study at the library. Do you want to come?</p>
+              <p><span class="speaker">Ravi:</span> Yes, I will come. What time?</p>
+              <p><span class="speaker">Priya:</span> At 4 pm. See you there!</p>
+              <p><span class="speaker">Ravi:</span> Okay. Bye, Priya!</p>
+            </div>
+          </div>
+
+          <div class="point">
+            <div class="point-title">9. Practice</div>
+            <ul>
+              <li>Read the full conversation aloud with a friend or family member.</li>
+              <li>Change the time and place, and say it again.</li>
+              <li>Talk for 1 minute about your day in simple sentences.</li>
+            </ul>
+          </div>
+
+          <div class="tip-box">Tip: You do not need perfect English. Speak clearly, keep sentences short, and smile.</div>
+        </div>
+      </details>
+    </section>
+
+    <section id="tips">
+      <h2>Practice Tips</h2>
+      <div class="tips">
+        <ul>
+          <li>Practise for 15 to 20 minutes every day. Short and regular is better than long and rare.</li>
+          <li>Speak out loud, even when you are alone.</li>
+          <li>Learn 5 new words each day and use them in a sentence.</li>
+          <li>Do not worry about mistakes. Every learner makes them.</li>
+          <li>Repeat the lessons you find hard until they feel easy.</li>
+          <li>Find a friend or family member to practise with.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="about">
+      <h2>About</h2>
+      <div class="about">
+        <p>by Angrej</p>
+      </div>
+    </section>
+
+    <section class="contact">
+      <h2>Contact</h2>
+      <a class="wa-btn" href="https://wa.me/919803469834" target="_blank" rel="noopener">Chat on WhatsApp</a>
+      <p class="footer-note">+91 98034 69834</p>
+    </section>
+
+  </main>
+
+</body>
+</html>
